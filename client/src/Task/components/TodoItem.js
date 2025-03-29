@@ -58,7 +58,7 @@ const TodoItem = ({ task, onDelete, onUpdate }) => {
                             className="btn btn-sm btn-outline-primary me-2"
                             onClick={() => setIsEditing(!isEditing)}
                         >
-                            {isEditing ? 'Cancel' : 'Edit'}
+                            {isEditing ? 'Cancel' : 'View / Edit'}
                         </button>
                         <button
                             className="btn btn-sm btn-outline-danger"
