@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "start": "concurrently \"npm run start --prefix client\" \"npm run start --prefix server\""
+    "start": "cd server && npm install && node server.js",
+    "heroku-postbuild": "cd ../client && npm install && npm run build"
   }
 }
