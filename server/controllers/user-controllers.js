@@ -1,7 +1,7 @@
-const { validationResult } = require('express-validator');
-const User = require('../models/User');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import { validationResult } from 'express-validator';
+import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const signup = async (req, res, next) => {
     const errors = validationResult(req);
@@ -70,6 +70,7 @@ const signup = async (req, res, next) => {
 const login = async (req, res, next) => {
     const { email, password } = req.body;
 
+    // Check for existing user
     let existingUser;
     try {
         existingUser = await User.findOne({ email: email });
@@ -81,6 +82,7 @@ const login = async (req, res, next) => {
         return res.status(401).json({ error: 'User does not exist, could not log you in.' });
     }
 
+    // Check for valid password
     let isValidPassword = false;
     try {
         isValidPassword = await bcrypt.compare(password, existingUser.password);
@@ -92,6 +94,7 @@ const login = async (req, res, next) => {
         return res.status(401).json({ error: 'Invalid credentials, could not log you in.' });
     }
 
+    // Generate token
     let token;
     try {
         token = jwt.sign(
@@ -112,6 +115,7 @@ const login = async (req, res, next) => {
     });
 };
 
+// Validate token
 const validateToken = async (req, res, next) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
@@ -124,7 +128,7 @@ const validateToken = async (req, res, next) => {
     }
 };
 
-module.exports = {
+export default {
     signup,
     login,
     validateToken

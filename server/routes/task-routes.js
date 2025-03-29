@@ -1,7 +1,7 @@
-const express = require('express');
-const { check } = require('express-validator');
-const taskController = require('../controllers/task-controllers');
-const auth = require('../middleware/auth');
+import express from 'express';
+import { check } from 'express-validator';
+import taskController from '../controllers/task-controllers.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -17,4 +17,4 @@ router.put('/:id', auth, taskController.updateTask);
 // Delete Task: DELETE /api/tasks/:id
 router.delete('/:id', auth, taskController.deleteTask);
 
-module.exports = router; 
+export default router;

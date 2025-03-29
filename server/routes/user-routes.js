@@ -1,7 +1,7 @@
-const express = require('express');
-const { check } = require('express-validator');
-const userController = require('../controllers/user-controllers');
-const auth = require('../middleware/auth');
+import express from 'express';
+import { check } from 'express-validator';
+import userController from '../controllers/user-controllers.js';
+import auth from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -27,4 +27,4 @@ router.post('/login',
 // Validate Token: GET /api/validate
 router.get('/validate', auth, userController.validateToken);
 
-module.exports = router; 
+export default router; 

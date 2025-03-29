@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
-const uniqueValidator = require('mongoose-unique-validator');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
+import uniqueValidator from 'mongoose-unique-validator';
 
 // Middleware to authenticate the user
 const auth = async (req, res, next) => {
@@ -21,4 +21,4 @@ const auth = async (req, res, next) => {
   }
 };
 
-module.exports = auth; 
+export default auth; 

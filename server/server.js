@@ -1,10 +1,12 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-const userRoutes = require('./routes/user-routes');
-const taskRoutes = require('./routes/task-routes');
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import path from 'path';
+
+import userRoutes from './routes/user-routes.js';
+import taskRoutes from './routes/task-routes.js';
 
 const app = express();
 
@@ -24,8 +26,19 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Something went wrong!' });
 });
 
+const __dirname = path.dirname("");
+const buildPath = path.join(__dirname, '../client/build');
+
+app.use(express.static(buildPath));
+
 app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+    res.sendFile(path.join(buildPath, 'index.html'),
+        function(err) {
+            if (err) {
+                res.status(500).send(err);
+            }
+        }
+    );
 });
 
 console.log(process.env.ATLAS_URI);

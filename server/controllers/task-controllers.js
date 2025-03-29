@@ -1,4 +1,4 @@
-const Task = require('../models/Task');
+import Task from '../models/Task.js';
 
 // Get Tasks: GET /api/tasks
 const getTasks = async (req, res) => {
@@ -136,7 +136,7 @@ const deleteTask = async (req, res) => {
     res.status(200).json({ message: "Task deleted successfully!"})
 }
 
-module.exports = {
+export default {
     getTasks,
     createTask,
     updateTask,
