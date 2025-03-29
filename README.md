@@ -1,9 +1,6 @@
 # How to run project
 ## For the Backend
-0. If you want to connect with your own MongoDB Databse, you can go to config.env, and change it with your username and password.
-```bash
-mongodb+srv://lchen:<db_password>@todolist.lyipmj6.mongodb.net/?retryWrites=true&w=majority&appName=ToDoList
-```
+0. If you want to connect with your own MongoDB Databse, you can go to server/config.env, and change ATLAS_URI with your own connection string in your application.
 
 1. Change the directory to server
 ```bash
