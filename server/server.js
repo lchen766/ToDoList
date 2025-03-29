@@ -24,13 +24,19 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Something went wrong!' });
 });
 
+app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
+
 console.log(process.env.ATLAS_URI);
 // start the Express server
 mongoose
     .connect(process.env.ATLAS_URI)
     .then( () => {
-        app.listen(process.env.PORT);
-        console.log("Server is running on port", process.env.PORT);
+        const PORT = process.env.PORT || 5001;
+        app.listen(PORT, ()  => {
+            console.log(`Server is running on port ${PORT}`);
+        });
     })
     .catch((error) => {
         console.log(error);

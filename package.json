@@ -2,5 +2,20 @@
   "scripts": {
     "start": "cd server && npm install && node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
-  }
+  },
+  "name": "todolist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lchen766/ToDoList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lchen766/ToDoList/issues"
+  },
+  "homepage": "https://github.com/lchen766/ToDoList#readme",
+  "description": ""
 }
