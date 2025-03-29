@@ -1,12 +1,33 @@
 # How to run project
-1. Install the necessary dependencies listed in package.json.
+## For the Backend
+1. Change the directory to server
+```bash
+cd server
+```
+2. Install the necessary dependencies listed in package.json.
 ```bash
 npm install
 ```
-2. Start the project. 
+3. Start the project. 
 ```bash
-npm run dev
+npm start
 ```
+If the backend runs successfully, it would show "Server is running on port 5050"
+
+## For the Frontend
+1. Change the directory to server
+```bash
+cd ../client
+```
+2. Install the necessary dependencies listed in package.json.
+```bash
+npm install
+```
+3. Start the project. 
+```bash
+npm start
+```
+If the frontend runs successfully, it would be running on http://localhost:3000
 
 # File Directory
 ```bash
