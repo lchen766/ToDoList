@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // API Base URL
-const BASE_URL = 'http://localhost:5050/api/tasks';
+const BASE_URL = 'https://lilin-todo-list-backend-658bdd22a801.herokuapp.com/api/tasks';
 
 // Function to get all tasks
 export const getTasks = async (token) => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import AuthLayout from '../layouts/AuthLayout';
+import AuthLayout from '../components/AuthLayout';
 import AuthForm from '../components/AuthForm';
 import { useAuth } from '../../contexts/AuthProvider';
 

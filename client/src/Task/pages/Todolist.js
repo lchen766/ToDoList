@@ -49,6 +49,7 @@ const TodoList = () => {
         createdTask
       ]);
       setNewTask({});
+      setError('');
     } catch (err) {
       setError('Failed to add task');
     }
@@ -130,7 +131,7 @@ const TodoList = () => {
                     type="text"
                     placeholder="Add a new todo title..."
                     value={newTask.title || ''}
-                    onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
+                    onChange={(e) => {setError(''); setNewTask({ ...newTask, title: e.target.value });}}
                   />
                 </FloatingLabel>
               </Form.Group>

@@ -5,7 +5,7 @@ import {
   useState,
 } from "react";
 
-
+const BASE_URL = 'https://lilin-todo-list-backend-658bdd22a801.herokuapp.com';
 // Create the AuthContext to hold authentication data
 const AuthContext = createContext(
   {
@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
 
   const handleLogin = async (email, password) => {
     try {
-      const response = await axios.post("http://localhost:5050/api/login", { email, password });
+      const response = await axios.post(`${BASE_URL}/api/login`, { email, password });
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
       return response.data;
@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
 
   const handleSignup = async (name, email, password) => {
     try {
-      const response = await axios.post("http://localhost:5050/api/register", { name, email, password });
+      const response = await axios.post(`${BASE_URL}/api/register`, { name, email, password });
       setToken(response.data.token);
       localStorage.setItem("token", response.data.token);
       return response.data; 

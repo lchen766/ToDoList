@@ -5,8 +5,8 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
 
-import userRoutes from './routes/user-routes.js';
-import taskRoutes from './routes/task-routes.js';
+import userRoutes from './routes/UserRoutes.js';
+import taskRoutes from './routes/TaskRoutes.js';
 
 const app = express();
 
@@ -14,7 +14,6 @@ dotenv.config( { path: './config.env'});
 
 app.use(cors());
 app.use(express.json());
-// app.use("/record", records);
 
 // Routes
 app.use('/api', userRoutes);  // This will handle /api/register and /api/login
@@ -31,22 +30,15 @@ const buildPath = path.join(__dirname, '../client/build');
 
 app.use(express.static(buildPath));
 
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(buildPath, 'index.html'),
-        function(err) {
-            if (err) {
-                res.status(500).send(err);
-            }
-        }
-    );
+app.get('/', function(req, res) {
+    res.json({ message: 'Hello World' });
 });
 
-console.log(process.env.ATLAS_URI);
 // start the Express server
 mongoose
     .connect(process.env.ATLAS_URI)
     .then( () => {
-        const PORT = process.env.PORT || 5001;
+        const PORT = process.env.PORT || 5050;
         app.listen(PORT, ()  => {
             console.log(`Server is running on port ${PORT}`);
         });

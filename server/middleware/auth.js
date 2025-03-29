@@ -3,7 +3,7 @@ import User from '../models/User.js';
 import uniqueValidator from 'mongoose-unique-validator';
 
 // Middleware to authenticate the user
-const auth = async (req, res, next) => {
+const Auth = async (req, res, next) => {
   try {
     const token = req.header('Authorization').replace('Bearer ', '');
     const decoded = jwt.verify(token, process.env.JWT_KEY);
@@ -21,4 +21,4 @@ const auth = async (req, res, next) => {
   }
 };
 
-export default auth; 
+export default Auth; 
