@@ -1,2 +1,14 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+todo-app/
+├── client/                 # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── contexts/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── utils/
+└── server/                 # Node.js backend
+    ├── controllers/
+    ├── models/
+    ├── routes/
+    ├── middleware/
+    └── config/
