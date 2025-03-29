@@ -7,11 +7,15 @@ For databse connection, please change your ATLAS_URI with your MongoDB username 
 ## How to start the backend
 
 In the project directory, you can run:
-### `npm install`
-### `npm start`
+```bash
+npm install
+```
+```bash
+npm start
+```
 
-
-## Stucture
+## File Directory
+```bash
 server/
 ├── controllers/
 |__ middleware/
@@ -19,3 +23,4 @@ server/
 |__ routes/
 |__ index.js
 |__ server.js
+```
