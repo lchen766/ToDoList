@@ -1,11 +1,15 @@
-todo-app/
+TODOLIST/
 ├── client/                 # React frontend
 │   ├── src/
-│   │   ├── components/
 │   │   ├── contexts/
-│   │   ├── pages/
 │   │   ├── services/
-│   │   └── utils/
+│   │   ├── Task/
+│   │   │   ├── components/
+│   │   │   ├── pages/
+│   │   └── User/
+│   │       ├── components/
+│   │       ├── pages/
+│   │       └── layouts/
 └── server/                 # Node.js backend
     ├── controllers/
     ├── models/
