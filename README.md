@@ -19,7 +19,7 @@ If the backend runs successfully, it would show "Server is running on port 5050"
 ## For the Frontend
 1. Change the directory to server
 ```bash
-cd ../client
+cd ./client
 ```
 2. Install the necessary dependencies listed in package.json.
 ```bash
